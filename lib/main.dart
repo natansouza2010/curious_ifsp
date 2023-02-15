@@ -31,13 +31,6 @@ class _MyAppState extends State<MyApp> {
   late final databaseReference;
   late String value;
 
-  // final ref = databaseReference.ref("room/123");
-
-  // await ref.set({
-  //   "name": "John",
-  //   "age": 18,
-  //   "address": {"line1": "100 Mountain View"}
-  // });
   @override
   void initState() {
     super.initState();

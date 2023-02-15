@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "22660598492",
+    "firebase_url": "https://curious-ifsp-default-rtdb.firebaseio.com",
+    "project_id": "curious-ifsp",
+    "storage_bucket": "curious-ifsp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22660598492:android:0ab766ad98b53da54fc219",
+        "android_client_info": {
+          "package_name": "com.example.curious_ifsp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22660598492-hjeuf63v9tg3qmmkrfm07rso3nmlvq59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGbS1Eso0TXzlnbH-v3YpywpMUQCTBqb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22660598492-hjeuf63v9tg3qmmkrfm07rso3nmlvq59.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "22660598492-2ji5obpip5ar2noq5l2s28tcld47hp3k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.curiousIfsp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseDatasourceImpl implements AuthFirebaseDatasourceContract {
   final FirebaseAuth auth;
   final GoogleSignIn googleSignIn;
+  late final UserModel _userModel;
 
   FirebaseDatasourceImpl({
     required this.auth,
@@ -15,9 +16,10 @@ class FirebaseDatasourceImpl implements AuthFirebaseDatasourceContract {
   });
 
   @override
-  Future<UserModel> currentUser() {
-    // TODO: implement currentUser
-    throw UnimplementedError();
+  Future<UserModel> currentUser() async {
+    final user = auth.currentUser;
+    if (user == null) throw Error();
+    return UserModel.fromUser(user);
   }
 
   @override
@@ -25,27 +27,22 @@ class FirebaseDatasourceImpl implements AuthFirebaseDatasourceContract {
     final googleSignInAccount = await googleSignIn.signIn();
 
     if (googleSignInAccount != null) {
-      final GoogleSignInAuthentication googleSignInAuthentication =
+      final googleSignInAuthentication =
           await googleSignInAccount.authentication;
 
-      final AuthCredential credential = GoogleAuthProvider.credential(
+      final credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );
+      final resultAuth = await auth.signInWithCredential(credential);
+      _userModel = UserModel.fromUserCredential(resultAuth);
     }
-
-    throw UnimplementedError();
+    return _userModel;
   }
 
   @override
-  Future<UserModel> loginWithPhone() {
-    // TODO: implement loginWithPhone
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<void> logout() {
-    // TODO: implement logout
-    throw UnimplementedError();
+  Future<void> logout() async {
+    await googleSignIn.signOut();
+    await auth.signOut();
   }
 }

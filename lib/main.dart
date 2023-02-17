@@ -1,9 +1,12 @@
 import 'dart:io';
 
+import 'package:curious_ifsp/app_widget.dart';
 import 'package:curious_ifsp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import 'app_module.dart';
 
 void main() async {
   // Inicialize o Firebase
@@ -16,9 +19,11 @@ void main() async {
   );
 
   // Inicie o aplicativo Flutter
-  runApp(const MyApp());
-}
 
+  runApp(ModularApp(module: AppModule(), child: AppWidget()));
+// }
+}
+/*
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -61,3 +66,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+*/

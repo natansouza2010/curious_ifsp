@@ -1,8 +1,4 @@
-import 'dart:io';
-
 import 'package:curious_ifsp/app_widget.dart';
-import 'package:curious_ifsp/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -10,6 +6,7 @@ import 'app_module.dart';
 
 void main() async {
   // Inicialize o Firebase
+  /*** 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     name: "curious_ifsp",
@@ -17,7 +14,7 @@ void main() async {
         ? DefaultFirebaseOptions.web
         : DefaultFirebaseOptions.currentPlatform,
   );
-
+   ***/
   // Inicie o aplicativo Flutter
 
   runApp(ModularApp(module: AppModule(), child: AppWidget()));

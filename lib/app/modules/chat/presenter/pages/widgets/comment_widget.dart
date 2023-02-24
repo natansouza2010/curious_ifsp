@@ -16,6 +16,7 @@ class CommentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
       child: ListTile(
@@ -27,9 +28,9 @@ class CommentWidget extends StatelessWidget {
           child: Container(
             height: 50.0,
             width: 50.0,
-            decoration: const BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.all(Radius.circular(50))),
+            decoration: BoxDecoration(
+                color: theme.colorScheme.onPrimaryContainer,
+                borderRadius: const BorderRadius.all(Radius.circular(50))),
             child: const CircleAvatar(
               radius: 50,
             ),
@@ -59,7 +60,6 @@ class CommentWidget extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            FaIcon(FontAwesomeIcons.heart, size: 15),
             FaIcon(FontAwesomeIcons.heart, size: 15),
           ],
         ),
